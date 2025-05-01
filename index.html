@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Nayan Acharya - Surveying & Geomatics Engineering Professional." />
   <title>Nayan Acharya | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
+
   <header>
+    <img src="nayan.jpg" alt="Nayan Acharya" class="profile-img" />
     <h1>Nayan Acharya</h1>
     <p>Surveying & Geomatics Engineering Professional</p>
-    <nav>
+    <nav aria-label="Main Navigation">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
@@ -18,41 +22,56 @@
     </nav>
   </header>
 
-  <section id="about"></section>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p id="about-short">
+        I am a dedicated Survey Engineering professional with 10 years of experience in surveying and mapping.
+      </p>
+      <p id="about-full" style="display: none;">
+        I hold a Junior Survey Training Certificate from the Land Management Training Centre, which provided me with a strong foundation in the field. Currently, I am pursuing a Bachelor’s degree in Geomatics Engineering from Kathmandu University to further enhance my expertise.
+        <br><br>
+        I am passionate about learning, leadership, and working in dynamic environments. I enjoy collaborating with diverse teams to achieve shared goals and strive for continuous growth. Beyond my profession, I like engaging in creative and meaningful activities that fuel my drive to make a positive impact.
+      </p>
+      <button id="readMoreBtn">Read More</button>
+    </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Surveying & Mapping</li>
-      <li>GIS Tools</li>
-      <li>Remote Sensing</li>
-      <li>AutoCAD & Civil 3D</li>
-      <li>Data Analysis</li>
-      <li>Team Leadership</li>
-    </ul>
-  </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Surveying & Mapping</li>
+        <li>GIS Tools</li>
+        <li>Remote Sensing</li>
+        <li>AutoCAD & Civil 3D</li>
+        <li>Data Analysis</li>
+        <li>Team Leadership</li>
+      </ul>
+    </section>
 
-  <section id="projects">
-    <h2>Projects & Experience</h2>
-    <div class="project">
-      <h3>GIS Technician – Municipality Transport Master Plan</h3>
-      <p>Worked with multiple consultancies to develop municipal-level transport plans using GIS tools, contributing spatial data analysis and map production.</p>
-    </div>
-    <div class="project">
-      <h3>Part-Time Teacher – Pre-Diploma in Survey Engineering</h3>
-      <p>Taught foundational surveying subjects, mentoring students and preparing them for real-world fieldwork and technical applications.</p>
-    </div>
-  </section>
+    <section id="projects">
+      <h2>Projects & Experience</h2>
+      <div class="project">
+        <h3>GIS Technician – Municipality Transport Master Plan</h3>
+        <p>Worked with multiple consultancies to develop municipal-level transport plans using GIS tools, contributing spatial data analysis and map production.</p>
+      </div>
+      <div class="project">
+        <h3>Part-Time Teacher – Pre-Diploma in Survey Engineering</h3>
+        <p>Taught foundational surveying subjects, mentoring students and preparing them for real-world fieldwork and technical applications.</p>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:aankhaharu@gmail.com">aankhaharu@gmail.com</a></p>
-  </section>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:aankhaharu@gmail.com">aankhaharu@gmail.com</a></p>
+      <p>Phone: <a href="tel:9823698833">9823698833</a></p>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Nayan Acharya</p>
   </footer>
 
   <script src="script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
