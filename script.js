@@ -29,55 +29,44 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Toggle 'Read More' in About section
-const readMoreBtn = document.createElement('button');
-readMoreBtn.textContent = 'Read More';
-readMoreBtn.style.display = 'block';
-readMoreBtn.style.marginTop = '10px';
-readMoreBtn.style.padding = '8px 16px';
-readMoreBtn.style.backgroundColor = '#004080';
-readMoreBtn.style.color = '#fff';
-readMoreBtn.style.border = 'none';
-readMoreBtn.style.borderRadius = '5px';
-readMoreBtn.style.cursor = 'pointer';
+// Add About content and toggle Read More
+window.addEventListener('DOMContentLoaded', () => {
+  const aboutSection = document.querySelector('#about');
+  if (!aboutSection) return;
 
-const aboutSection = document.querySelector('#about');
-const profileImg = `<div style="text-align:center;">
-  <img src="./nayan.jpg" alt="Nayan Acharya" class="profile-img" />
-</div>`;
+  const readMoreBtn = document.createElement('button');
+  readMoreBtn.textContent = 'Read More';
+  readMoreBtn.className = 'read-more-btn';
 
-const fullText = \`
-  <h2>About Me</h2>
-  \${profileImg}
-  <p>
-    I am a dedicated Survey Engineering professional with 10 years of experience in surveying and mapping. I hold a Junior Survey Training Certificate from the Land Management Training Centre, which provided me with a strong foundation in the field. Currently, I am pursuing a Bachelor’s degree in Geomatics Engineering from Kathmandu University to further enhance my expertise.
-  </p>
-  <p>
-    I am passionate about learning, leadership, and working in dynamic environments. I enjoy collaborating with diverse teams to achieve shared goals and strive for continuous growth. Beyond my profession, I like engaging in creative and meaningful activities that fuel my drive to make a positive impact.
-  </p>
-\`;
+  const profileImg = '<img src="nayan.jpg" alt="Nayan Acharya" class="profile-img" />';
 
-const truncatedText = \`
-  <h2>About Me</h2>
-  \${profileImg}
-  <p>
-    I am a dedicated Survey Engineering professional with 10 years of experience in surveying and mapping.
-  </p>
-\`;
+  const fullText = `
+    <h2>About Me</h2>
+    ${profileImg}
+    <p>
+      I am a dedicated Survey Engineering professional with 10 years of experience in surveying and mapping. I hold a Junior Survey Training Certificate from the Land Management Training Centre, which provided me with a strong foundation in the field. Currently, I am pursuing a Bachelor’s degree in Geomatics Engineering from Kathmandu University to further enhance my expertise.
+    </p>
+    <p>
+      I am passionate about learning, leadership, and working in dynamic environments. I enjoy collaborating with diverse teams to achieve shared goals and strive for continuous growth. Beyond my profession, I like engaging in creative and meaningful activities that fuel my drive to make a positive impact.
+    </p>
+  `;
 
-let isExpanded = false;
-aboutSection.innerHTML = truncatedText;
-aboutSection.appendChild(readMoreBtn);
+  const truncatedText = `
+    <h2>About Me</h2>
+    ${profileImg}
+    <p>
+      I am a dedicated Survey Engineering professional with 10 years of experience in surveying and mapping.
+    </p>
+  `;
 
-readMoreBtn.addEventListener('click', () => {
-  if (isExpanded) {
-    aboutSection.innerHTML = truncatedText;
+  let isExpanded = false;
+  aboutSection.innerHTML = truncatedText;
+  aboutSection.appendChild(readMoreBtn);
+
+  readMoreBtn.addEventListener('click', () => {
+    aboutSection.innerHTML = isExpanded ? truncatedText : fullText;
     aboutSection.appendChild(readMoreBtn);
-    readMoreBtn.textContent = 'Read More';
-  } else {
-    aboutSection.innerHTML = fullText;
-    aboutSection.appendChild(readMoreBtn);
-    readMoreBtn.textContent = 'Read Less';
-  }
-  isExpanded = !isExpanded;
+    readMoreBtn.textContent = isExpanded ? 'Read More' : 'Read Less';
+    isExpanded = !isExpanded;
+  });
 });
