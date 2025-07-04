@@ -1,53 +1,15 @@
-// Smooth scrolling for internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
+const map = L.map('insetMap', {
+  center: [27.666150, 85.299654],
+  zoom: 13,
+  zoomControl: true
 });
 
-// Highlight current section in nav on scroll
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('header nav a');
-  let current = '';
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 60) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-});
-
-// Read More functionality
-const readMoreBtn = document.getElementById('readMoreBtn');
-const shortBio = document.getElementById('about-short');
-const fullBio = document.getElementById('about-full');
-
-let isExpanded = false;
-
-readMoreBtn.addEventListener('click', () => {
-  if (isExpanded) {
-    fullBio.style.display = 'none';
-    shortBio.style.display = 'block';
-    readMoreBtn.textContent = 'Read More';
-  } else {
-    fullBio.style.display = 'block';
-    shortBio.style.display = 'none';
-    readMoreBtn.textContent = 'Read Less';
-  }
-  isExpanded = !isExpanded;
-});
-
-
-
+L.marker([27.666150, 85.299654])
+  .addTo(map)
+  .bindPopup('Nayan Acharya Location')
+  .openPopup();
